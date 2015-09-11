@@ -104,17 +104,15 @@ public class TicTacToe extends Activity {
     }
 
     private void checkWinner() {
-        if (counter == 9){
+        int winner = getWinner();
+        if (winner > 0) {
+            ((TextView) findViewById(R.id.WinnerBox)).setText("Player " + winner + " is the winner!");
+            game = false;
+            findViewById(R.id.ReplayButton).setVisibility(View.VISIBLE);
+        } else if (counter == 9) {
             ((TextView) findViewById(R.id.WinnerBox)).setText("It's a tie!");
             game = false;
             findViewById(R.id.ReplayButton).setVisibility(View.VISIBLE);
-        }else {
-            int winner = getWinner();
-            if (winner > 0) {
-                ((TextView) findViewById(R.id.WinnerBox)).setText("Player " + winner + " is the winner!");
-                game = false;
-                findViewById(R.id.ReplayButton).setVisibility(View.VISIBLE);
-            }
         }
     }
 
